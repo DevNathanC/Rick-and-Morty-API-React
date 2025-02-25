@@ -5,7 +5,8 @@ ul{
     flex-wrap: wrap;
     justify-content: center;
     margin: 0;
-    padding: 0;
+    padding: 10px;
+    
     
 }
 
@@ -28,4 +29,5 @@ p{
 .infosCharacters{
     background-color: rgb(49, 49, 49);
     border-radius: 5px;
+    padding: 10px;
 }   

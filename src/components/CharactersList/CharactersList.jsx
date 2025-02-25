@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { ThemeContext } from "../contexts/theme-context";
 import fetchCharacterData from "../fetchCharactersData/fetchCharactersData";
-import "./Characters.css"
+import "./CharactersList.css"
 
 const CharacterList = () => {
     const [listCharacters, setCharacters] = useState({
@@ -18,6 +19,8 @@ const CharacterList = () => {
         fetchData()
     }, [])
 
+    const {theme} = useContext(ThemeContext)
+
     return (
         <>
             <div>
@@ -25,9 +28,9 @@ const CharacterList = () => {
                     {
                         listCharacters.characters.map((character) => {
                             return (
-                                <li key={character.id}>
+                                <li key={character.id} >
+                                    <div className="infosCharacters" style={{color:theme.color ,backgroundColor: theme.background}}>
                                     <img src={character.image} alt={character.name} />
-                                    <div className="infosCharacters">
                                     <p>Name: {character.name}</p>
                                     <p>Status: {character.status}</p>
                                     <p>Species: {character.species}</p>
